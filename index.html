@@ -912,9 +912,8 @@
     let countdownStarted = false;
 
     document.addEventListener('DOMContentLoaded', () => {
-      setLanguage('ar');
-      runLoader();
-    });
+      const userLang = navigator.language && navigator.language.startsWith('ar') ? 'ar' : 'en';
+setLanguage(userLang);
 
     function runLoader() {
       const loader = document.getElementById('loader');
