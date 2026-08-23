@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>حذف الحساب والبيانات - ديوني | Debtix</title>
+  <title>طلب حذف الحساب والبيانات - ديوني | Debtix</title>
 
   <meta name="description"
-        content="صفحة طلب حذف الحساب والبيانات الخاصة بتطبيق ديوني | Debtix. يمكنك من خلالها إرسال طلب حذف حسابك والبيانات المرتبطة به.">
+        content="صفحة رسمية لطلب حذف حساب وبيانات مستخدمي تطبيق ديوني | Debtix.">
 
   <style>
     * {
@@ -20,6 +20,7 @@
 
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, "Tajawal", sans-serif;
       background: #f5f7fb;
       color: #172033;
@@ -38,17 +39,24 @@
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
     }
 
+    /* الشعار */
     .header {
       text-align: center;
       margin-bottom: 30px;
     }
 
-    .logo {
-      width: 82px;
-      height: 82px;
-      border-radius: 20px;
-      object-fit: cover;
-      margin-bottom: 15px;
+    .debtix-logo {
+      display: block !important;
+      width: 82px !important;
+      height: 82px !important;
+      max-width: 82px !important;
+      max-height: 82px !important;
+      min-width: 82px !important;
+      min-height: 82px !important;
+      object-fit: cover !important;
+      border-radius: 20px !important;
+      margin: 0 auto 15px auto !important;
+      padding: 0 !important;
     }
 
     .header h1 {
@@ -69,11 +77,7 @@
       margin: 8px 0;
     }
 
-    /*
-      هذا القسم هو أهم جزء في الصفحة.
-      تم وضع طريقة طلب الحذف في أعلى الصفحة
-      حتى تكون واضحة وسهلة الاكتشاف للمستخدم وللمراجعة.
-    */
+    /* طلب الحذف */
     .delete-box {
       background: #eef5ff;
       border: 2px solid #1769e0;
@@ -95,14 +99,14 @@
     }
 
     .delete-button {
-      display: inline-block;
-      background: #1769e0;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 15px 28px;
-      border-radius: 13px;
-      font-size: 17px;
-      font-weight: bold;
+      display: inline-block !important;
+      background: #1769e0 !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      padding: 15px 28px !important;
+      border-radius: 13px !important;
+      font-size: 17px !important;
+      font-weight: bold !important;
       transition: 0.2s ease;
     }
 
@@ -111,6 +115,7 @@
       opacity: 0.92;
     }
 
+    /* الخطوات */
     .steps {
       margin: 0;
       padding: 0;
@@ -126,18 +131,21 @@
     }
 
     .step-number {
-      display: inline-flex;
+      display: inline-flex !important;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #1769e0;
-      color: #ffffff;
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
+      min-height: 28px !important;
+      border-radius: 50% !important;
+      background: #1769e0 !important;
+      color: #ffffff !important;
       font-weight: bold;
       margin-left: 8px;
     }
 
+    /* الأقسام */
     .section {
       background: #f8faff;
       border: 1px solid #e8edf5;
@@ -158,16 +166,17 @@
       color: #4c566a;
     }
 
-    ul.data-list {
+    .data-list {
       margin: 12px 0 0;
       padding-right: 22px;
     }
 
-    ul.data-list li {
+    .data-list li {
       margin-bottom: 7px;
       color: #4c566a;
     }
 
+    /* التنبيه */
     .notice {
       background: #fff8e8;
       border: 1px solid #f0dca7;
@@ -178,16 +187,7 @@
       margin-bottom: 25px;
     }
 
-    .contact-link {
-      color: #1769e0;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-
+    /* الأزرار */
     .actions {
       display: flex;
       gap: 12px;
@@ -197,22 +197,22 @@
     }
 
     .button {
-      display: inline-block;
-      text-decoration: none;
-      border-radius: 12px;
-      padding: 13px 25px;
-      font-weight: bold;
+      display: inline-block !important;
+      text-decoration: none !important;
+      border-radius: 12px !important;
+      padding: 13px 25px !important;
+      font-weight: bold !important;
       transition: 0.2s ease;
     }
 
     .button-primary {
-      background: #1769e0;
-      color: #ffffff;
+      background: #1769e0 !important;
+      color: #ffffff !important;
     }
 
     .button-secondary {
-      background: #eef3fb;
-      color: #1769e0;
+      background: #eef3fb !important;
+      color: #1769e0 !important;
     }
 
     .button:hover {
@@ -227,11 +227,7 @@
       font-size: 14px;
     }
 
-    footer a {
-      color: #1769e0;
-      text-decoration: none;
-    }
-
+    /* الجوال */
     @media (max-width: 600px) {
 
       .container {
@@ -242,6 +238,13 @@
       .card {
         padding: 22px 15px;
         border-radius: 18px;
+      }
+
+      .debtix-logo {
+        width: 82px !important;
+        height: 82px !important;
+        max-width: 82px !important;
+        max-height: 82px !important;
       }
 
       .header h1 {
@@ -261,8 +264,8 @@
       }
 
       .delete-button {
-        width: 100%;
-        padding: 14px 15px;
+        width: 100% !important;
+        padding: 14px 15px !important;
       }
 
       .section {
@@ -274,8 +277,8 @@
       }
 
       .button {
-        width: 100%;
-        text-align: center;
+        width: 100% !important;
+        text-align: center !important;
       }
     }
   </style>
@@ -287,39 +290,47 @@
 
     <div class="card">
 
-      <!-- اسم التطبيق ظاهر بوضوح -->
+      <!-- =========================
+           معلومات التطبيق
+           ========================= -->
+
       <header class="header">
 
         <img
-  class="debtix-logo"
-  src="https://ytgold.mtaltawaf.com/Debtix/debtix-logo.png"
-  alt="شعار ديوني Debtix"
-  width="82"
-  height="82"
->
+          class="debtix-logo"
+          src="https://ytgold.mtaltawaf.com/Debtix/debtix-logo.png"
+          alt="شعار ديوني Debtix"
+          width="82"
+          height="82"
+        >
 
-        <h1>حذف الحساب والبيانات</h1>
+        <h1>طلب حذف الحساب والبيانات</h1>
 
         <div class="app-name">
           ديوني | Debtix
         </div>
 
         <p>
-          صفحة رسمية لطلب حذف حسابك والبيانات المرتبطة به في تطبيق ديوني | Debtix.
+          هذه الصفحة مخصصة لطلبات حذف حسابات مستخدمي
+          تطبيق ديوني | Debtix والبيانات المرتبطة بها.
         </p>
 
       </header>
 
 
-      <!-- المسار الرئيسي لطلب الحذف -->
+      <!-- =========================
+           الطريقة الرئيسية لطلب الحذف
+           ========================= -->
+
       <section class="delete-box" id="delete-account">
 
         <h2>طلب حذف الحساب والبيانات</h2>
 
         <p>
-          إذا كنت ترغب في حذف حسابك في تطبيق
-          <strong>ديوني | Debtix</strong> والبيانات المرتبطة به،
-          يمكنك بدء طلب الحذف من خلال زر التواصل أدناه.
+          لطلب حذف حسابك والبيانات المرتبطة به،
+          اضغط على الزر أدناه وانتقل إلى صفحة التواصل.
+          يرجى استخدام البريد الإلكتروني المرتبط بحساب
+          ديوني | Debtix عند إرسال الطلب.
         </p>
 
         <a
@@ -334,7 +345,10 @@
       </section>
 
 
-      <!-- خطوات الحذف -->
+      <!-- =========================
+           خطوات طلب الحذف
+           ========================= -->
+
       <section class="section">
 
         <h2>خطوات طلب حذف الحساب</h2>
@@ -343,25 +357,24 @@
 
           <li>
             <span class="step-number">1</span>
-            افتح صفحة التواصل من خلال زر
+            اضغط على زر
             <strong>«بدء طلب حذف الحساب»</strong>.
           </li>
 
           <li>
             <span class="step-number">2</span>
-            أرسل طلبًا لحذف حسابك، واذكر البريد الإلكتروني المرتبط
-            بحسابك في تطبيق ديوني | Debtix.
+            أرسل طلب حذف الحساب من صفحة التواصل.
           </li>
 
           <li>
             <span class="step-number">3</span>
-            سيتم التحقق من ملكية الحساب باستخدام المعلومات اللازمة
-            لمعالجة طلب الحذف.
+            اذكر عنوان البريد الإلكتروني المرتبط بحسابك
+            في تطبيق ديوني | Debtix.
           </li>
 
           <li>
             <span class="step-number">4</span>
-            بعد التحقق، تتم معالجة طلب حذف الحساب والبيانات المرتبطة به.
+            يتم التحقق من ملكية الحساب ثم معالجة طلب الحذف.
           </li>
 
         </ol>
@@ -369,60 +382,85 @@
       </section>
 
 
-      <!-- البيانات التي سيتم حذفها -->
+      <!-- =========================
+           البيانات التي يتم حذفها
+           ========================= -->
+
       <section class="section">
 
         <h2>البيانات التي يتم حذفها</h2>
 
         <p>
-          عند الموافقة على طلب حذف الحساب وإتمام عملية الحذف،
-          يتم حذف البيانات المرتبطة بحسابك وفقًا لسياسة الخصوصية.
+          عند إتمام عملية حذف الحساب، يتم حذف البيانات
+          المرتبطة بالحساب والخدمات المرتبطة به.
         </p>
 
         <ul class="data-list">
-          <li>حساب المستخدم.</li>
-          <li>عنوان البريد الإلكتروني المرتبط بالحساب.</li>
-          <li>البيانات المرتبطة بحساب المستخدم المخزنة لتشغيل خدمات التطبيق.</li>
+
+          <li>
+            حساب المستخدم.
+          </li>
+
+          <li>
+            عنوان البريد الإلكتروني المرتبط بالحساب.
+          </li>
+
+          <li>
+            البيانات المرتبطة بحساب المستخدم والمخزنة
+            لتشغيل خدمات التطبيق.
+          </li>
+
         </ul>
 
       </section>
 
 
-      <!-- الاحتفاظ بالبيانات -->
+      <!-- =========================
+           البيانات التي قد يتم الاحتفاظ بها
+           ========================= -->
+
       <section class="section">
 
-        <h2>البيانات التي يتم الاحتفاظ بها</h2>
+        <h2>البيانات التي قد يتم الاحتفاظ بها</h2>
 
         <p>
-          لا يتم الاحتفاظ ببيانات الحساب بعد إتمام عملية الحذف،
-          باستثناء البيانات التي قد يكون الاحتفاظ بها مطلوبًا
-          بموجب القانون أو لأغراض أمنية أو منع الاحتيال.
+          لا يتم الاحتفاظ ببيانات الحساب بعد إتمام عملية
+          الحذف، باستثناء البيانات التي يكون الاحتفاظ بها
+          مطلوبًا بموجب القانون أو لأغراض أمنية أو منع الاحتيال.
         </p>
 
-        <p style="margin-top: 12px;">
+        <p style="margin-top:12px;">
           في حال وجود التزام قانوني بالاحتفاظ بأي بيانات،
-          يتم الاحتفاظ بها فقط للمدة المطلوبة قانونيًا ثم حذفها
-          عندما لا تعود هناك حاجة قانونية للاحتفاظ بها.
+          يتم الاحتفاظ بها فقط للمدة المطلوبة قانونيًا،
+          ثم يتم حذفها عندما لا تعود هناك حاجة قانونية
+          للاحتفاظ بها.
         </p>
 
       </section>
 
 
-      <!-- مدة المعالجة -->
+      <!-- =========================
+           مدة معالجة الطلب
+           ========================= -->
+
       <section class="section">
 
         <h2>مدة معالجة طلب الحذف</h2>
 
         <p>
-          تتم معالجة طلبات حذف الحساب خلال فترة معقولة بعد استلام الطلب
-          والتحقق من ملكية الحساب. سيتم إبلاغ المستخدم إذا كانت هناك
-          حاجة إلى وقت إضافي لمعالجة الطلب.
+          تتم معالجة طلب حذف الحساب بعد استلام الطلب
+          والتحقق من ملكية الحساب. قد تستغرق معالجة الطلب
+          مدة تصل إلى 30 يومًا عند الحاجة إلى التحقق أو
+          الإجراءات اللازمة لإتمام الحذف.
         </p>
 
       </section>
 
 
-      <!-- تنبيه -->
+      <!-- =========================
+           تنبيه
+           ========================= -->
+
       <div class="notice">
 
         <strong>مهم:</strong>
@@ -430,13 +468,17 @@
         <br>
 
         حذف الحساب إجراء نهائي. بعد إتمام عملية الحذف،
-        قد تفقد إمكانية الوصول إلى الحساب والبيانات المرتبطة به.
-        تأكد من رغبتك في حذف الحساب قبل إرسال الطلب.
+        قد تفقد إمكانية الوصول إلى حسابك والبيانات
+        المرتبطة به. تأكد من رغبتك في حذف الحساب
+        قبل إرسال الطلب.
 
       </div>
 
 
-      <!-- أزرار إضافية -->
+      <!-- =========================
+           أزرار الصفحة
+           ========================= -->
+
       <div class="actions">
 
         <a
@@ -445,7 +487,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          اتصل بنا لطلب الحذف
+          طلب حذف الحساب
         </a>
 
         <a
@@ -462,13 +504,17 @@
     </div>
 
 
+    <!-- =========================
+         التذييل
+         ========================= -->
+
     <footer>
 
       © 2026 ديوني | Debtix
 
       <br>
 
-      هذه الصفحة مخصصة لطلبات حذف الحساب والبيانات.
+      صفحة طلب حذف الحساب والبيانات
 
     </footer>
 
