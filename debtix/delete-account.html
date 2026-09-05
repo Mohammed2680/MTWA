@@ -9,279 +9,169 @@
   <meta name="description"
         content="صفحة رسمية لطلب حذف حساب وبيانات مستخدمي تطبيق ديوني | Debtix.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
 
-    html {
-      scroll-behavior: smooth;
-    }
+:root{
+  --blue:#1769e0; --blue2:#4b8df8; --ink:#14213d; --muted:#657189;
+  --bg:#f4f7fc; --card:rgba(255,255,255,.88); --line:#e6ebf3;
+  --shadow:0 24px 70px rgba(23,55,110,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; min-height:100vh; font-family:"Cairo",Arial,sans-serif;
+  color:var(--ink); line-height:1.85; overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(75,141,248,.18),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(23,105,224,.12),transparent 28%),
+    linear-gradient(135deg,#f8fbff,var(--bg));
+}
+body:before,body:after{
+  content:""; position:fixed; z-index:-1; border-radius:50%; filter:blur(4px);
+  animation:float 10s ease-in-out infinite;
+}
+body:before{width:260px;height:260px;right:-100px;top:20%;background:rgba(75,141,248,.12)}
+body:after{width:210px;height:210px;left:-90px;bottom:8%;background:rgba(23,105,224,.10);animation-delay:-4s}
+.container{width:min(960px,calc(100% - 28px));margin:38px auto}
+.card{
+  position:relative; overflow:hidden; background:var(--card);
+  border:1px solid rgba(255,255,255,.8); border-radius:32px;
+  padding:42px; box-shadow:var(--shadow); backdrop-filter:blur(18px);
+  animation:rise .75s cubic-bezier(.2,.8,.2,1) both;
+}
+.card:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,rgba(255,255,255,.5),transparent 40%);
+}
+.header{text-align:center;margin-bottom:34px;position:relative}
+.debtix-logo{
+  display:block!important;width:92px!important;height:92px!important;
+  max-width:92px!important;max-height:92px!important;min-width:92px!important;min-height:92px!important;
+  object-fit:cover!important;border-radius:25px!important;margin:0 auto 18px!important;
+  box-shadow:0 14px 35px rgba(23,105,224,.22); animation:logoIn .9s ease both;
+}
+.header h1{margin:0;font-size:clamp(26px,5vw,38px);font-weight:800;letter-spacing:-.5px}
+.app-name{font-size:21px;font-weight:800;margin:8px 0;color:var(--blue)}
+.header p{max-width:680px;margin:10px auto 0;color:var(--muted)}
+.delete-box{
+  position:relative; isolation:isolate; overflow:hidden; text-align:center;
+  background:linear-gradient(135deg,#eef6ff,#f8fbff); border:1px solid #cfe0fb;
+  border-radius:25px;padding:30px;margin-bottom:25px;
+  box-shadow:0 14px 38px rgba(23,105,224,.08);
+}
+.delete-box:after{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  background:rgba(75,141,248,.10);left:-70px;top:-90px;z-index:-1;
+}
+.delete-box h2{margin:0 0 8px;color:var(--blue);font-size:24px}
+.delete-box p{color:#4b5870;margin:0 auto 22px;max-width:650px}
+.delete-button,.button{
+  position:relative;display:inline-flex!important;align-items:center;justify-content:center;
+  gap:8px;text-decoration:none!important;border-radius:15px!important;
+  font-weight:800!important; transition:transform .25s,box-shadow .25s,opacity .25s;
+}
+.delete-button{
+  background:linear-gradient(135deg,var(--blue),var(--blue2))!important;color:#fff!important;
+  padding:15px 30px!important;font-size:17px!important;
+  box-shadow:0 12px 26px rgba(23,105,224,.28);
+}
+.delete-button:before{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.32),transparent 70%);
+  transform:translateX(-120%);animation:shine 3.5s infinite;
+}
+.delete-button:hover,.button:hover{transform:translateY(-4px);box-shadow:0 15px 30px rgba(23,105,224,.20)}
+.section{
+  background:rgba(255,255,255,.74);border:1px solid var(--line);
+  border-radius:21px;padding:24px;margin-bottom:18px;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+  animation:sectionIn .7s ease both;
+}
+.section:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(23,55,110,.07);border-color:#d5e1f3}
+.section h2{font-size:21px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.section h2:before{
+  content:"";width:7px;height:25px;border-radius:8px;
+  background:linear-gradient(var(--blue),var(--blue2));display:inline-block;
+}
+.section p{margin:0;color:#536078}
+.steps{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.steps li{
+  display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e7ecf4;
+  border-radius:15px;padding:14px 16px;color:#4b5870;
+  transition:transform .25s,background .25s;
+}
+.steps li:hover{transform:translateX(-5px);background:#f8fbff}
+.step-number{
+  display:inline-flex!important;align-items:center;justify-content:center;
+  width:32px!important;height:32px!important;min-width:32px!important;
+  border-radius:50%!important;background:linear-gradient(135deg,var(--blue),var(--blue2))!important;
+  color:#fff!important;font-weight:800;box-shadow:0 7px 15px rgba(23,105,224,.2)
+}
+.data-list{margin:12px 0 0;padding-right:22px}.data-list li{margin-bottom:7px;color:#536078}
+.notice{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#fff7f7,#fffdfd);
+  border:2px solid #ef4444;color:#6d3131;border-radius:18px;
+  padding:19px;margin:20px 0 25px;
+  box-shadow:0 10px 25px rgba(239,68,68,.10);
+  animation:dangerPulse 2.2s ease-in-out infinite;
+}
+.notice:before{
+  content:"";position:absolute;inset:-3px;border-radius:20px;
+  border:2px solid transparent;
+  background:linear-gradient(90deg,#ef4444,#ff8a8a,#ef4444,#b91c1c,#ef4444) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  background-size:300% 100%;animation:redBorder 2.8s linear infinite;
+  pointer-events:none;
+}
+.notice strong{
+  color:#dc2626;font-weight:800;display:inline-flex;
+  align-items:center;gap:7px;font-size:18px;
+}
+.notice strong:before{
+  content:"⚠️";color:#ef4444;font-size:20px;line-height:1;
+  filter:saturate(1.5);animation:warningBlink 1.15s ease-in-out infinite;
+}
+@keyframes redBorder{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes dangerPulse{
+  0%,100%{box-shadow:0 10px 25px rgba(239,68,68,.10)}
+  50%{box-shadow:0 10px 32px rgba(239,68,68,.22)}
+}
+@keyframes warningBlink{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.12);opacity:.72}
+}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.button{padding:13px 25px!important}
+.button-primary{background:linear-gradient(135deg,var(--blue),var(--blue2))!important;color:#fff!important;box-shadow:0 10px 22px rgba(23,105,224,.22)}
+.button-secondary{background:#edf3fc!important;color:var(--blue)!important}
+footer{text-align:center;margin-top:25px;color:#7b8495;font-size:14px}
+.reveal{opacity:0;transform:translateY(18px)} .reveal.visible{opacity:1;transform:none;transition:opacity .65s ease,transform .65s ease}
+@keyframes rise{from{opacity:0;transform:translateY(25px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes logoIn{from{opacity:0;transform:scale(.7) rotate(-8deg)}to{opacity:1;transform:none}}
+@keyframes sectionIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@keyframes float{50%{transform:translate3d(0,-22px,0) scale(1.04)}}
+@keyframes shine{0%,55%{transform:translateX(-120%)}75%,100%{transform:translateX(120%)}}
+@media (max-width:600px){
+  .container{width:calc(100% - 14px);margin:14px auto}
+  .card{padding:24px 15px;border-radius:23px}
+  .debtix-logo{width:82px!important;height:82px!important;max-width:82px!important;max-height:82px!important;min-width:82px!important;min-height:82px!important}
+  .header h1{font-size:25px}.app-name{font-size:18px}
+  .delete-box{padding:23px 15px}.delete-button{width:100%!important;padding:14px 15px!important}
+  .section{padding:19px 16px}.actions{flex-direction:column}.button{width:100%!important}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, "Tajawal", sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-      line-height: 1.8;
-    }
-
-    .container {
-      width: min(900px, calc(100% - 24px));
-      margin: 30px auto;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 35px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
-    }
-
-    /* الشعار */
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .debtix-logo {
-      display: block !important;
-      width: 82px !important;
-      height: 82px !important;
-      max-width: 82px !important;
-      max-height: 82px !important;
-      min-width: 82px !important;
-      min-height: 82px !important;
-      object-fit: cover !important;
-      border-radius: 20px !important;
-      margin: 0 auto 15px auto !important;
-      padding: 0 !important;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 30px;
-      color: #172033;
-    }
-
-    .app-name {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 8px 0;
-      color: #1769e0;
-    }
-
-    .header p {
-      color: #697386;
-      margin: 8px 0;
-    }
-
-    /* طلب الحذف */
-    .delete-box {
-      background: #eef5ff;
-      border: 2px solid #1769e0;
-      border-radius: 20px;
-      padding: 25px;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .delete-box h2 {
-      margin-top: 0;
-      color: #1769e0;
-      font-size: 23px;
-    }
-
-    .delete-box p {
-      color: #465269;
-      margin-bottom: 20px;
-    }
-
-    .delete-button {
-      display: inline-block !important;
-      background: #1769e0 !important;
-      color: #ffffff !important;
-      text-decoration: none !important;
-      padding: 15px 28px !important;
-      border-radius: 13px !important;
-      font-size: 17px !important;
-      font-weight: bold !important;
-      transition: 0.2s ease;
-    }
-
-    .delete-button:hover {
-      transform: translateY(-2px);
-      opacity: 0.92;
-    }
-
-    /* الخطوات */
-    .steps {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .steps li {
-      background: #ffffff;
-      border: 1px solid #dfe6f0;
-      border-radius: 14px;
-      padding: 15px 18px;
-      margin-bottom: 10px;
-    }
-
-    .step-number {
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
-      width: 28px !important;
-      height: 28px !important;
-      min-width: 28px !important;
-      min-height: 28px !important;
-      border-radius: 50% !important;
-      background: #1769e0 !important;
-      color: #ffffff !important;
-      font-weight: bold;
-      margin-left: 8px;
-    }
-
-    /* الأقسام */
-    .section {
-      background: #f8faff;
-      border: 1px solid #e8edf5;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 18px;
-    }
-
-    .section h2 {
-      font-size: 20px;
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #172033;
-    }
-
-    .section p {
-      margin: 0;
-      color: #4c566a;
-    }
-
-    .data-list {
-      margin: 12px 0 0;
-      padding-right: 22px;
-    }
-
-    .data-list li {
-      margin-bottom: 7px;
-      color: #4c566a;
-    }
-
-    /* التنبيه */
-    .notice {
-      background: #fff8e8;
-      border: 1px solid #f0dca7;
-      color: #6d5314;
-      border-radius: 16px;
-      padding: 18px;
-      margin-top: 20px;
-      margin-bottom: 25px;
-    }
-
-    /* الأزرار */
-    .actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-block !important;
-      text-decoration: none !important;
-      border-radius: 12px !important;
-      padding: 13px 25px !important;
-      font-weight: bold !important;
-      transition: 0.2s ease;
-    }
-
-    .button-primary {
-      background: #1769e0 !important;
-      color: #ffffff !important;
-    }
-
-    .button-secondary {
-      background: #eef3fb !important;
-      color: #1769e0 !important;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      opacity: 0.92;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 25px;
-      color: #7b8495;
-      font-size: 14px;
-    }
-
-    /* الجوال */
-    @media (max-width: 600px) {
-
-      .container {
-        width: calc(100% - 14px);
-        margin: 12px auto;
-      }
-
-      .card {
-        padding: 22px 15px;
-        border-radius: 18px;
-      }
-
-      .debtix-logo {
-        width: 82px !important;
-        height: 82px !important;
-        max-width: 82px !important;
-        max-height: 82px !important;
-      }
-
-      .header h1 {
-        font-size: 25px;
-      }
-
-      .app-name {
-        font-size: 18px;
-      }
-
-      .delete-box {
-        padding: 20px 15px;
-      }
-
-      .delete-box h2 {
-        font-size: 21px;
-      }
-
-      .delete-button {
-        width: 100% !important;
-        padding: 14px 15px !important;
-      }
-
-      .section {
-        padding: 18px;
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100% !important;
-        text-align: center !important;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -406,8 +296,7 @@
           </li>
 
           <li>
-            البيانات المرتبطة بحساب المستخدم والمخزنة
-            لتشغيل خدمات التطبيق.
+            البيانات المرتبطة بحساب المستخدم بالكامل
           </li>
 
         </ul>
@@ -416,30 +305,10 @@
 
 
       <!-- =========================
-           البيانات التي قد يتم الاحتفاظ بها
+           البيانات بعد حذف الحساب
            ========================= -->
 
-      <section class="section">
-
-        <h2>البيانات التي قد يتم الاحتفاظ بها</h2>
-
-        <p>
-          لا يتم الاحتفاظ ببيانات الحساب بعد إتمام عملية
-          الحذف، باستثناء البيانات التي يكون الاحتفاظ بها
-          مطلوبًا بموجب القانون أو لأغراض أمنية أو منع الاحتيال.
-        </p>
-
-        <p style="margin-top:12px;">
-          في حال وجود التزام قانوني بالاحتفاظ بأي بيانات،
-          يتم الاحتفاظ بها فقط للمدة المطلوبة قانونيًا،
-          ثم يتم حذفها عندما لا تعود هناك حاجة قانونية
-          للاحتفاظ بها.
-        </p>
-
-      </section>
-
-
-      <!-- =========================
+<!-- =========================
            مدة معالجة الطلب
            ========================= -->
 
@@ -511,14 +380,28 @@
     <footer>
 
       © 2026 ديوني | Debtix
-
-      <br>
-
-      صفحة طلب حذف الحساب والبيانات
-
+      
     </footer>
 
   </main>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".section, .notice, .actions");
+  items.forEach(el => el.classList.add("reveal"));
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${Math.min(i * 70, 280)}ms`;
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.08});
+  items.forEach(el => io.observe(el));
+});
+</script>
 
 </body>
 </html>
