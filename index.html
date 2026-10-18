@@ -1891,7 +1891,39 @@ textarea,
   #debtix-banner .db-download svg { width: 14px; height: 14px; flex-basis: 14px; }
 }
 </style>
+  
+<style>
+/* DEBTIX — توحيد حجم الاسم العربي والإنجليزي */
+#debtix-banner .db-brand,
+#debtix-banner .db-brand-en {
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  line-height: 1.25;
+}
 
+/* تثبيت الحجم على الجوال */
+@media (max-width: 350px) {
+  #debtix-banner .db-brand,
+  #debtix-banner .db-brand-en {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  #debtix-banner .db-brand,
+  #debtix-banner .db-brand-en {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 340px) {
+  #debtix-banner .db-brand,
+  #debtix-banner .db-brand-en {
+    font-size: 20px !important;
+  }
+}
+</style>
+  
 <div id="debtix-banner" role="region" aria-label="إعلان تطبيق ديوني" aria-live="polite">
   <button class="db-close" type="button" aria-label="إغلاق الإعلان">×</button>
 
@@ -1907,7 +1939,7 @@ textarea,
     </div>
 
     <div class="db-info">
-      <div class="db-brand">ديوني <span class="db-brand-en">| Debtix</span></div>
+      <div class="db-brand">ديوني | <span class="db-brand-en"> Debtix</span></div>
       <div class="db-content">
         <div class="db-feature">
           <span class="db-feature-icon" id="db-icon" aria-hidden="true">👥</span>
